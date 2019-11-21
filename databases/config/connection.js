@@ -15,6 +15,17 @@ var sequelize = new Sequelize(process.env.MYSQL_DBNAME, process.env.MYSQL_USER, 
   }
 });
 
+if (process.env.JAWSDB_URL) {
+  connection = mysql.createConnection(process.env.JAWSDB_URL);
+} else {
+  connection = mysql.createConnection({
+    host: 'localhost',
+    user:'root',
+    password:'password',
+    database:'premierleague_db'
+  });
+};
+
 
 //Creates mySQL connection using Sequelize, the empty string in the third argument spot is our password.
 // if(process.env.JAWSDB_URL){
